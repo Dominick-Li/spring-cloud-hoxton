@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: register
+  security:
+    user:
+      name: admin
+      password: 123456
+
+eureka:
+  client:
+    registerWithEureka: false     #表示是否将自己注册到Eureka Server，默认为true,由于当前应用是Eureka Server，所以设为false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8761/eureka/
+      #集群环境defaultZone: http://etop:etoplive@server1:8761/eureka/,http://etop:etoplive@server2:8761/eureka/ #Eureka Server地址
+  #关闭服务保护
+#    server:
+#      enable-self-preservation: false
+
+logging:
+  config: conf/logback/${spring.application.name}-logback.xml
+
+server:
+  port: 8761
+---
+
+spring:
+  profiles: server1
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: server1
+
+---
+
+spring:
+  profiles: server2
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: server2

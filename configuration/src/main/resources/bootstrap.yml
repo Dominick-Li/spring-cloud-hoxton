@@ -1,0 +1,19 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: configuration
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/db,classpath:/config
+
+#添加注册
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8761/eureka/
+      #defaultZone: http://etop:etoplive@server1:8761/eureka/,http://etop:etoplive@server2:8761/eureka/ #集群

@@ -1,0 +1,31 @@
+server:
+  port: 8765
+spring:
+  application:
+    name: producer
+  cloud:
+    config:
+      profile: producer
+      discovery:
+        enabled: true
+        service-id: configuration   #表示服务注册中心发现的config
+      name: mysql
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        enable_lazy_load_no_trans: true
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8761/eureka/
+
+

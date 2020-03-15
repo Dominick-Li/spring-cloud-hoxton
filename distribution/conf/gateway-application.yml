@@ -1,0 +1,48 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true   #默认转换所有服务
+          lowerCaseServiceId: true  #把服务名转换成小写
+
+#集群环境
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true     #标识将自己的IP注册到Eureka Server,默认为false
+
+#熔断器配置
+hystrix:
+  threadpool:
+    default:
+      coreSize: 100  #并发执行的最大线程数，默认10
+  command:
+    default:
+      execution:
+        strategy: Thread      #默认是线程隔离,可选Thread｜Semaphore
+        timeout:
+          enabled: true       #执行是否启用超时，默认启用true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000   #命令执行超时时间,默认1000ms
+
+#需要暴露监控端口给admin访问
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+logging:
+  config: conf/logback/${spring.application.name}-logback.xml

@@ -1,0 +1,21 @@
+spring:
+  boot:
+    admin:
+  #配置页面显示的title和导航头部显示
+      ui:
+        title: Cloud Monitor
+  #配置发送邮件需要的参数
+  mail:
+    host: smtp.qq.com
+    username: 826853123@qq.com
+    password: hqvowygzwhzsbegb
+    properties:
+      mail:
+        smtp:
+          auth: true
+
+client:
+  notify:
+    mail:
+      subject: Cloud service notification
+      to: 826853123@qq.com

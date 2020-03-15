@@ -1,0 +1,24 @@
+server:
+  port: 8764
+spring:
+  application:
+    name: monitor
+  cloud:
+    config:
+      profile: info
+      discovery:
+        enabled: true
+        service-id: configuration   #表示服务注册中心发现的config
+      name: monitor
+
+#集群环境
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123456@localhost:8761/eureka/
+
+
+logging:
+  config: conf/logback/${spring.application.name}-logback.xml
+
+
