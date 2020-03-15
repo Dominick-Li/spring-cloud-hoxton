@@ -2,14 +2,14 @@
 微服务架构base 
 
 ###########功能特效  
-这套架构包含服务注册中心,统一配置中心,网关(包含限流熔断),监控中心 
+这套架构包含服务注册中心,统一配置中心,网关(包含限流熔断),监控中心  
 producer项目用于重数据库读取数据 
 consumer项目在服务内部调用producer获取消息 
 
 ###########环境依赖  
 jdk 1.8以上   
-spring cloud版本 -> Hoxton.SR3 
-springboot 版本  -> 2.2.5 
+spring cloud版本 -> Hoxton.SR3  
+springboot 版本  -> 2.2.5  
 
 ###########各模块说明  
 模块介绍    
