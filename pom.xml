@@ -28,7 +28,7 @@
     <properties>
         <java.version>1.8</java.version>
         <cloud.version>Hoxton.SR3</cloud.version>   <!--spring cloud版本-->
-        <mysql.version>8.0.11</mysql.version>       <!--mysql连接工具-->
+        <mysql.version>8.0.16</mysql.version>       <!--mysql连接工具-->
         <json.version>20190722</json.version>       <!--json转换器-->
     </properties>
 
